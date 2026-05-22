@@ -44,7 +44,7 @@ function FigurePlaceholder({ caption, color }) {
 
 function StepCard({ step, color, isOpen, onToggle, theme, isMobile }) {
   return (
-    <div style={{
+    <div className="step-card" style={{
       background: '#fff', borderRadius: 12, overflow: 'hidden',
       border: `1px solid ${isOpen ? color.tag : color.tagBg}`,
       boxShadow: isOpen ? `0 4px 16px rgba(0,0,0,0.06)` : '0 1px 0 rgba(0,0,0,0.03)',
@@ -73,7 +73,7 @@ function StepCard({ step, color, isOpen, onToggle, theme, isMobile }) {
         </svg>
       </button>
 
-      <div style={{
+      <div className="step-card-content" style={{
         maxHeight: isOpen ? 4000 : 0, opacity: isOpen ? 1 : 0,
         overflow: 'hidden', transition: 'max-height 0.4s ease, opacity 0.25s',
       }}>
@@ -171,6 +171,23 @@ function StepCard({ step, color, isOpen, onToggle, theme, isMobile }) {
   );
 }
 
+const PrintButton = ({ theme, style = {} }) => (
+  <button onClick={() => window.print()} style={{
+    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+    padding: '7px 14px', border: `1px solid ${theme.border}`,
+    borderRadius: 8, background: 'transparent', cursor: 'pointer',
+    fontSize: 12, fontFamily: 'inherit', color: theme.muted,
+    ...style,
+  }}>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 6 2 18 2 18 9"/>
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+      <rect x="6" y="14" width="12" height="8"/>
+    </svg>
+    印刷
+  </button>
+);
+
 export function ManualApp({ theme, viewportWidth }) {
   const data = MANUAL_DATA;
   const [activeStep, setActiveStep] = useState('intro');
@@ -178,6 +195,25 @@ export function ManualApp({ theme, viewportWidth }) {
   const [query, setQuery] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const mainRef = useRef(null);
+
+  useEffect(() => {
+    const handleBeforePrint = () => {
+      setOpenSteps(new Set(data.sections.flatMap(sec => sec.steps.map(s => s.id))));
+      const stepEls = document.querySelectorAll('[id^="section-step-"]');
+      stepEls.forEach((el, i) => {
+        el.classList.toggle('print-break', (i + 1) % 2 === 0);
+      });
+    };
+    const handleAfterPrint = () => {
+      document.querySelectorAll('.print-break').forEach(el => el.classList.remove('print-break'));
+    };
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
+    return () => {
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
+    };
+  }, [data]);
 
   const isMobile = viewportWidth < 768;
 
@@ -312,11 +348,15 @@ export function ManualApp({ theme, viewportWidth }) {
           </>
         )}
       </div>
+
+      <div style={{ padding: '0 16px 20px' }}>
+        <PrintButton theme={theme} style={{ width: '100%' }} />
+      </div>
     </>
   );
 
   return (
-    <div style={{
+    <div id="app-layout" style={{
       position: 'relative', height: '100%', background: theme.bg, color: theme.body,
       fontFamily: theme.bodyFont, fontSize: 14, overflow: 'hidden',
       display: 'grid',
@@ -337,7 +377,8 @@ export function ManualApp({ theme, viewportWidth }) {
           <div style={{ width: 26, height: 26, borderRadius: 6, background: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26C17.81 13.47 19 11.38 19 9c0-3.87-3.13-7-7-7z"/></svg>
           </div>
-          <span style={{ fontSize: 14, fontWeight: 700, color: theme.heading }}>整体施術マニュアル</span>
+          <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: theme.heading }}>整体施術マニュアル</span>
+          <PrintButton theme={theme} />
         </header>
       )}
 
@@ -409,7 +450,7 @@ export function ManualApp({ theme, viewportWidth }) {
           const c = secColors[i] || secColors[0];
           return (
             <section key={sec.id} style={{ padding: isMobile ? '32px 20px' : '48px 56px 64px', background: c.bg, scrollMarginTop: 16 }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? 14 : 20, marginBottom: 24 }}>
+              <div className="section-header" style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? 14 : 20, marginBottom: 24 }}>
                 <span style={{ fontFamily: theme.numberFont, fontSize: isMobile ? 64 : 96, fontWeight: 800, color: c.tag, lineHeight: 0.85, letterSpacing: -4 }}>{String(sec.number).padStart(2, '0')}</span>
                 <div style={{ paddingTop: isMobile ? 4 : 12 }}>
                   <div style={{ display: 'inline-block', padding: '3px 10px', borderRadius: 12, background: c.tag, color: '#fff', fontSize: 10, fontWeight: 700, letterSpacing: 1.5, fontFamily: theme.numberFont, marginBottom: 8 }}>SECTION {sec.number}</div>
@@ -419,7 +460,7 @@ export function ManualApp({ theme, viewportWidth }) {
               </div>
 
               {sec.pre && (
-                <div style={{
+                <div className="section-pre" style={{
                   display: 'flex', gap: 12, padding: '14px 18px',
                   background: '#fff', borderRadius: 10, marginBottom: 24,
                   borderLeft: `4px solid ${c.tag}`,
