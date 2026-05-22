@@ -1,7 +1,5 @@
-// 整体マニュアル — メインコンポーネント (A1 v3)
-// アコーディオン式・モバイル対応
-
-const { useState: useS, useEffect: useE, useRef: useR, useMemo: useM } = React;
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { MANUAL_DATA } from './data.js';
 
 function highlight(text, q) {
   if (!q) return text;
@@ -173,13 +171,13 @@ function StepCard({ step, color, isOpen, onToggle, theme, isMobile }) {
   );
 }
 
-function ManualApp({ theme, viewportWidth }) {
-  const data = window.MANUAL_DATA;
-  const [activeStep, setActiveStep] = useS('intro');
-  const [openSteps, setOpenSteps] = useS(new Set());
-  const [query, setQuery] = useS('');
-  const [sidebarOpen, setSidebarOpen] = useS(false);
-  const mainRef = useR(null);
+export function ManualApp({ theme, viewportWidth }) {
+  const data = MANUAL_DATA;
+  const [activeStep, setActiveStep] = useState('intro');
+  const [openSteps, setOpenSteps] = useState(new Set());
+  const [query, setQuery] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const mainRef = useRef(null);
 
   const isMobile = viewportWidth < 768;
 
@@ -203,7 +201,7 @@ function ManualApp({ theme, viewportWidth }) {
     if (isMobile) setSidebarOpen(false);
   };
 
-  const results = useM(() => {
+  const results = useMemo(() => {
     if (!query.trim()) return [];
     const q = query.toLowerCase();
     const out = [];
@@ -453,5 +451,3 @@ function ManualApp({ theme, viewportWidth }) {
     </div>
   );
 }
-
-window.ManualApp = ManualApp;

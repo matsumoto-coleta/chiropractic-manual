@@ -1,6 +1,6 @@
 // 整体マニュアル — 詳細データ
 
-window.MANUAL_DATA = {
+export const MANUAL_DATA = {
   title: "整体施術マニュアル",
   subtitle: "施術者向け学習ガイド",
   edition: "2026年版 / 第1版",
@@ -37,7 +37,6 @@ window.MANUAL_DATA = {
           title: "太ももの圧迫（外側）",
           subtitle: "内側を圧迫しながら外側の筋もほぐす",
           purpose: "圧迫して血流を促進する",
-          // image: "images/1-2.jpg",
           details: [
             "太ももの内側を足裏全体で圧迫しながら、外側にある筋をほぐすことも意識する",
           ],
@@ -49,7 +48,6 @@ window.MANUAL_DATA = {
           title: "ふくらはぎ全体",
           subtitle: "太ももの半分の力で圧迫する",
           purpose: "圧迫して血流を促進する",
-          // image: "images/1-3.jpg",
           details: [
             "太もも同様に、ふくらはぎを足裏全体を使って圧迫する",
             "太ももと比べて、半分くらいの力で行う",
@@ -62,7 +60,6 @@ window.MANUAL_DATA = {
           title: "太ももの筋",
           subtitle: "ハムストリングスを肘でほぐす",
           purpose: "太ももの筋を重点的にほぐし、血流を改善する",
-          // image: "images/1-4.jpg",
           details: [
             "足を軽く立ててもらい、すねの下に施術者の膝を入れた状態で行う",
             "肘を使って、太ももの内側の筋2本（半腱様筋と半膜様筋）をほぐす",
@@ -77,7 +74,6 @@ window.MANUAL_DATA = {
           title: "ふくらはぎの筋",
           subtitle: "ヒラメ筋へのアプローチ（第二の心臓）",
           purpose: "ふくらはぎの筋を重点的にほぐし、血流を改善する",
-          // image: "images/1-5.jpg",
           details: [
             "膝の下に施術者のすねを入れた状態で、施術者の腕の外側を使ってしごくようにほぐす",
           ],
@@ -94,7 +90,6 @@ window.MANUAL_DATA = {
           title: "膝裏",
           subtitle: "指で優しくほぐす",
           purpose: "膝裏の筋をゆるめる",
-          // image: "images/1-6.jpg",
           details: [
             "膝裏の筋を指で優しくほぐす",
           ],
@@ -106,7 +101,6 @@ window.MANUAL_DATA = {
           title: "太もも前面・足三里・くるぶし",
           subtitle: "足まわりの血流を総合的に改善する",
           purpose: "太もも前面と足三里、くるぶしの筋をほぐし、足まわりの血流を改善する",
-          // image: "images/1-7.jpg",
           details: [
             "うつ伏せのまま、片方の足を曲げてもらう",
             "太もも前面を施術者の手の甲を使って、押さえるように回転させながらほぐす",
@@ -124,7 +118,6 @@ window.MANUAL_DATA = {
           title: "お尻",
           subtitle: "血流改善・腰痛改善の核心部位",
           purpose: "血流改善・腰痛改善の核心となる部位のため、重点的に行う",
-          // image: "images/1-8.jpg",
           details: [
             "おしりの横の筋（中殿筋）を肘を使ってほぐす",
             "おしりのくぼんでいる部分（梨状筋・坐骨神経痛のポイント）を肘を使ってほぐす",
@@ -141,7 +134,6 @@ window.MANUAL_DATA = {
           title: "背中・腰",
           subtitle: "脊柱起立筋群・多裂筋をほぐす",
           purpose: "背中の筋をほぐすことで血流や交感神経群を改善する",
-          // image: "images/1-9.jpg",
           details: [
             "背骨のサイドにある筋を腰から肩甲骨下あたりまで肘を使ってほぐす",
             "肘を当てて、手首を軽く回しながら肘を当てている場所をほぐしていく",
@@ -159,7 +151,6 @@ window.MANUAL_DATA = {
           title: "腕の裏",
           subtitle: "肩こり・首こりの根本にある腕の血流を改善",
           purpose: "肩こり・首こりの根本にある腕の血流を改善する",
-          // image: "images/1-10.jpg",
           details: [
             "手を下に向けた状態で、前腕の部分を施術者の足裏を使って圧迫する",
             "上腕は施術者の腕の外側を使ってほぐす",
@@ -175,7 +166,6 @@ window.MANUAL_DATA = {
           title: "肩甲骨まわり",
           subtitle: "肩こりの根本である肩甲骨際の筋をほぐす",
           purpose: "肩こりの根本である肩甲骨際の筋をほぐす",
-          // image: "images/1-11.jpg",
           details: [
             "腕を曲げて、手首を背中に乗せてもらい、施術者の膝または太ももの上に腕を乗せて支える体制で行う",
             "肩甲骨の内側のキワの部分を肘でほぐす",
@@ -190,7 +180,6 @@ window.MANUAL_DATA = {
           title: "腕の表",
           subtitle: "前腕・上腕の表側の凝りをほぐす",
           purpose: "腕の表側の凝っている筋をほぐす",
-          // image: "images/1-12.jpg",
           details: [
             "手を上（ハの字）向けにした体位で行う",
             "前腕の凝っている筋を施術者の指を使って念入りにほぐす",
@@ -206,7 +195,6 @@ window.MANUAL_DATA = {
           title: "肩",
           subtitle: "腕・肩甲骨と合わせて肩のコリを仕上げる",
           purpose: "腕周りと合わせて、肩のコリも軽くほぐす",
-          // image: "images/1-13.jpg",
           details: [
             "頭の上に施術者が回り込み、両手で肩こりの部分を押してあげる",
           ],
@@ -229,7 +217,6 @@ window.MANUAL_DATA = {
           title: "太もも前面の筋",
           subtitle: "太もも前面の血流を改善する",
           purpose: "太もも前面の血流を改善する",
-          // image: "images/2-1.jpg",
           details: [
             "片方の足を立ててもらい、その下に施術者自身の足を入れた状態で行う",
             "手の甲または腕の外側を使って、太ももの外側・真ん中・内側の筋を中心にほぐす",
@@ -244,7 +231,6 @@ window.MANUAL_DATA = {
           title: "膝まわりの筋",
           subtitle: "膝まわりの血流を改善する",
           purpose: "膝まわりの血流を改善する",
-          // image: "images/2-2.jpg",
           details: [
             "足をまっすぐ戻して、膝のまわりの筋を指でもみほぐす",
           ],
@@ -256,7 +242,6 @@ window.MANUAL_DATA = {
           title: "膝の皿",
           subtitle: "膝の状態を確認し、軟骨をチェックする",
           purpose: "膝の状態を確認し、軟骨の健康状態をチェックする",
-          // image: "images/2-3.jpg",
           details: [
             "膝の皿を、両手の親指と人差し指でつまんで上下させて、動きを見る",
           ],
@@ -272,7 +257,6 @@ window.MANUAL_DATA = {
           title: "足首（くるぶし）",
           subtitle: "足首まわりの筋をほぐして血流を改善",
           purpose: "足首まわりの筋をほぐし、ツボで股関節・婦人科系の状態を確認",
-          // image: "images/2-4.jpg",
           details: [
             "くるぶしまわりを指でほぐす",
             "くるぶしを握って、くるぶしより下を回して筋を緩める",
@@ -289,7 +273,6 @@ window.MANUAL_DATA = {
           title: "足の甲",
           subtitle: "足の甲の血流を良くする",
           purpose: "足の甲の血流を良くする",
-          // image: "images/2-5.jpg",
           details: [
             "骨と骨の間の部分を、両手の指を使ってほぐしていく",
           ],
@@ -303,7 +286,6 @@ window.MANUAL_DATA = {
           title: "足の裏",
           subtitle: "ツボを刺激し、内臓の不調も確認",
           purpose: "足裏をほぐして血流をよくする。ツボを刺激し、内臓の不調を確認",
-          // image: "images/2-6.jpg",
           details: [
             "足裏を指で指圧する",
             "ツボを押しながら痛みを確認する",
@@ -318,7 +300,6 @@ window.MANUAL_DATA = {
           title: "腕全体",
           subtitle: "腕の血流を改善し、肩まわりも整える",
           purpose: "腕の血流を改善し、肩まわりも含めて整える",
-          // image: "images/2-7.jpg",
           details: [
             "腕の表側の凝っている筋を指でほぐす",
             "腕の裏側を上に向け、腱の部分を指または肘で一本一本ほぐす",
@@ -338,7 +319,6 @@ window.MANUAL_DATA = {
           title: "手の甲・指・平",
           subtitle: "手の甲・指・平の血流をよくする",
           purpose: "手の甲・指・平の血流をよくする",
-          // image: "images/2-8.jpg",
           details: [
             "骨の間の部分を指で手首に向かってほぐす",
             "指を根本まで一本一本ほぐす",
@@ -354,7 +334,6 @@ window.MANUAL_DATA = {
           title: "頭",
           subtitle: "頭部の血流を改善し、緊張をほぐす",
           purpose: "頭部の血流を改善し、緊張をほぐす",
-          // image: "images/2-9.jpg",
           details: [
             "中指と薬指でこめかみから側頭葉にかけて頭の側面を指圧する",
             "眉部分を親指で端から端まで指圧し、同様に頭頂まで順に指圧する",
@@ -370,7 +349,6 @@ window.MANUAL_DATA = {
           title: "首",
           subtitle: "首まわりの血流とリンパの流れを整える",
           purpose: "首まわりの血流を改善し、リンパの流れも整える",
-          // image: "images/2-10.jpg",
           details: [
             "頭を少し横に向けて、伸びた首筋のリンパの筋をほぐす",
             "首の後ろ側の筋を指でほぐす",
@@ -389,7 +367,6 @@ window.MANUAL_DATA = {
           title: "肩",
           subtitle: "肩の筋をほぐして血流を改善する",
           purpose: "肩の筋をほぐして血流を改善する",
-          // image: "images/2-11.jpg",
           details: [
             "肩の筋をグーッとつまんで圧迫し緩めるという動作を、腕を回しながら行う",
           ],
@@ -401,7 +378,6 @@ window.MANUAL_DATA = {
           title: "肩甲骨まわり",
           subtitle: "うつ伏せで届かない肩甲骨まわりをほぐす",
           purpose: "うつ伏せでは届かない肩甲骨まわりの筋をほぐす",
-          // image: "images/2-12.jpg",
           details: [
             "腕を胸の前に持ち上げて、肩甲骨の上あたりを押さえながら腕を回転させる",
           ],
@@ -413,7 +389,6 @@ window.MANUAL_DATA = {
           title: "菱形筋まわり",
           subtitle: "菱形筋をほぐし、姿勢改善につなげる",
           purpose: "菱形筋をほぐし、姿勢改善につなげる",
-          // image: "images/2-13.jpg",
           details: [
             "肩の下に両手を入れて、上に持ち上げながら少しずつ背中側に手を入れてほぐす",
           ],
@@ -427,7 +402,6 @@ window.MANUAL_DATA = {
           title: "首ストレッチ",
           subtitle: "首まわりの可動域を広げる仕上げ",
           purpose: "施術で緩んだ首まわりを整え、可動域を広げる",
-          // image: "images/2-14.jpg",
           details: [
             "頭を片手で持ち、もう片方の手で肩を抑えて首の筋が伸びるように頭と肩を開く。反対側も同様",
             "タオルを首の下に入れて、両端を引っ張ることで首後ろの筋のストレッチを行う",

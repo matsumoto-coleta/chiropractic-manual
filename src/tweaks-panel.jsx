@@ -1,5 +1,4 @@
-
-// tweaks-panel.js — Reusable Tweaks panel shell + form controls
+import React from 'react';
 
 const __TWEAKS_STYLE = `
   .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
@@ -95,7 +94,7 @@ const __TWEAKS_STYLE = `
   .twk-swatch::-moz-color-swatch{border:0;border-radius:5.5px}
 `;
 
-function useTweaks(defaults) {
+export function useTweaks(defaults) {
   const [values, setValues] = React.useState(defaults);
   const setTweak = React.useCallback((keyOrEdits, val) => {
     const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null
@@ -106,7 +105,7 @@ function useTweaks(defaults) {
   return [values, setTweak];
 }
 
-function TweaksPanel({ title = 'Tweaks', children }) {
+export function TweaksPanel({ title = 'Tweaks', children }) {
   const [open, setOpen] = React.useState(false);
   const dragRef = React.useRef(null);
   const offsetRef = React.useRef({ x: 16, y: 16 });
@@ -194,7 +193,7 @@ function TweaksPanel({ title = 'Tweaks', children }) {
   );
 }
 
-function TweakSection({ title, label, children }) {
+export function TweakSection({ title, label, children }) {
   return (
     <>
       <div className="twk-sect">{title || label}</div>
@@ -203,7 +202,7 @@ function TweakSection({ title, label, children }) {
   );
 }
 
-function TweakRow({ label, value, children, inline = false }) {
+export function TweakRow({ label, value, children, inline = false }) {
   return (
     <div className={inline ? 'twk-row twk-row-h' : 'twk-row'}>
       <div className="twk-lbl">
@@ -215,7 +214,7 @@ function TweakRow({ label, value, children, inline = false }) {
   );
 }
 
-function TweakSlider({ label, value, min = 0, max = 100, step = 1, unit = '', onChange }) {
+export function TweakSlider({ label, value, min = 0, max = 100, step = 1, unit = '', onChange }) {
   return (
     <TweakRow label={label} value={`${value}${unit}`}>
       <input type="range" className="twk-slider" min={min} max={max} step={step}
@@ -224,7 +223,7 @@ function TweakSlider({ label, value, min = 0, max = 100, step = 1, unit = '', on
   );
 }
 
-function TweakToggle({ label, value, onChange }) {
+export function TweakToggle({ label, value, onChange }) {
   return (
     <div className="twk-row twk-row-h">
       <div className="twk-lbl"><span>{label}</span></div>
@@ -235,7 +234,7 @@ function TweakToggle({ label, value, onChange }) {
   );
 }
 
-function TweakRadio({ label, value, options, onChange }) {
+export function TweakRadio({ label, value, options, onChange }) {
   const trackRef = React.useRef(null);
   const [dragging, setDragging] = React.useState(false);
   const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
@@ -286,7 +285,7 @@ function TweakRadio({ label, value, options, onChange }) {
   );
 }
 
-function TweakSelect({ label, value, options, onChange }) {
+export function TweakSelect({ label, value, options, onChange }) {
   return (
     <TweakRow label={label}>
       <select className="twk-field" value={value} onChange={(e) => onChange(e.target.value)}>
@@ -300,7 +299,7 @@ function TweakSelect({ label, value, options, onChange }) {
   );
 }
 
-function TweakText({ label, value, placeholder, onChange }) {
+export function TweakText({ label, value, placeholder, onChange }) {
   return (
     <TweakRow label={label}>
       <input className="twk-field" type="text" value={value} placeholder={placeholder}
@@ -309,7 +308,7 @@ function TweakText({ label, value, placeholder, onChange }) {
   );
 }
 
-function TweakNumber({ label, value, min, max, step = 1, unit = '', onChange }) {
+export function TweakNumber({ label, value, min, max, step = 1, unit = '', onChange }) {
   const clamp = (n) => {
     if (min != null && n < min) return min;
     if (max != null && n > max) return max;
@@ -343,7 +342,7 @@ function TweakNumber({ label, value, min, max, step = 1, unit = '', onChange }) 
   );
 }
 
-function TweakColor({ label, value, onChange }) {
+export function TweakColor({ label, value, onChange }) {
   return (
     <div className="twk-row twk-row-h">
       <div className="twk-lbl"><span>{label}</span></div>
@@ -353,15 +352,9 @@ function TweakColor({ label, value, onChange }) {
   );
 }
 
-function TweakButton({ label, children, onClick, secondary = false }) {
+export function TweakButton({ label, children, onClick, secondary = false }) {
   return (
     <button type="button" className={secondary ? 'twk-btn secondary' : 'twk-btn'}
             onClick={onClick}>{children || label}</button>
   );
 }
-
-Object.assign(window, {
-  useTweaks, TweaksPanel, TweakSection, TweakRow,
-  TweakSlider, TweakToggle, TweakRadio, TweakSelect,
-  TweakText, TweakNumber, TweakColor, TweakButton,
-});
