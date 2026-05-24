@@ -250,6 +250,7 @@ export function ManualApp({ theme, viewportWidth }) {
 
   const secColors = [
     { bg: '#fef0e8', tag: '#e07a4a', tagBg: '#fde0d0', deep: '#a04820' },
+    { bg: '#edf5ee', tag: '#3a8a6a', tagBg: '#d0ead8', deep: '#1f5a3a' },
     { bg: '#e8f0f5', tag: '#3a7aa0', tagBg: '#d0e2ed', deep: '#1f4d6e' },
   ];
   const introColor = { bg: '#f0ede0', tag: '#7a8a3a', tagBg: '#e0e3c8', deep: '#4a5520' };
