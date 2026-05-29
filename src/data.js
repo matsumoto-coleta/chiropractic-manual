@@ -25,7 +25,7 @@ export const MANUAL_DATA = {
           title: "太ももの圧迫（内側）",
           subtitle: "足裏全体を使って圧迫し、血流を促進",
           purpose: "圧迫して血流を促進する",
-          // image: "images/1-1.webp",
+          image: "images/1_1.png",
           details: [
             "太ももの内側を足裏全体を使って圧迫する",
           ],
@@ -37,6 +37,7 @@ export const MANUAL_DATA = {
           title: "太ももの圧迫（外側）",
           subtitle: "内側を圧迫しながら外側の筋もほぐす",
           purpose: "圧迫して血流を促進する",
+          image: "images/1_1.png",
           details: [
             "太ももの内側を足裏全体で圧迫しながら、外側にある筋をほぐすことも意識する",
           ],
@@ -48,6 +49,7 @@ export const MANUAL_DATA = {
           title: "ふくらはぎ全体",
           subtitle: "太ももの半分の力で圧迫する",
           purpose: "圧迫して血流を促進する",
+          image: "images/1_3.png",
           details: [
             "太もも同様に、ふくらはぎを足裏全体を使って圧迫する",
             "太ももと比べて、半分くらいの力で行う",
@@ -60,6 +62,7 @@ export const MANUAL_DATA = {
           title: "太ももの筋",
           subtitle: "ハムストリングスを肘でほぐす",
           purpose: "太ももの筋を重点的にほぐし、血流を改善する",
+          image: "images/1_4.png",
           details: [
             "足を軽く立ててもらい、すねの下に施術者の膝を入れた状態で行う",
             "肘を使って、太ももの内側の筋2本（半腱様筋と半膜様筋）をほぐす",
@@ -74,6 +77,7 @@ export const MANUAL_DATA = {
           title: "ふくらはぎの筋",
           subtitle: "ヒラメ筋へのアプローチ（第二の心臓）",
           purpose: "ふくらはぎの筋を重点的にほぐし、血流を改善する",
+          image: "images/1_5.png",
           details: [
             "膝の下に施術者のすねを入れた状態で、施術者の腕の外側を使ってしごくようにほぐす",
           ],
